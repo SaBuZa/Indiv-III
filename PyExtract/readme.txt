@@ -1,0 +1,2 @@
+s -> rgb
+spc -> normal
