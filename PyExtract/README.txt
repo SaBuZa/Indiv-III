@@ -1,2 +1,2 @@
-s -> Normal Vector 
+normal -> Normal Vector 
 rgb -> [RGB] 

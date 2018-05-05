@@ -10,7 +10,7 @@ normB = 6 * [0]
 
 for i in range(6):
     rgb_file = 'rgb000' + str(i) + '.exr'
-    norm_file = 's000' + str(i) + '.exr'
+    norm_file = 'normal000' + str(i) + '.exr'
     
     myimg = cv.imread(rgb_file,-1)
     mynorm = cv.imread(norm_file,-1)
