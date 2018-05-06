@@ -3,14 +3,15 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-MY_BOUNDED_SET = (int)(42368*0.9) # leave about 10% for test set
+MY_BOUNDED_SET = (int)(442368*0.9) # leave about 10% for test set
 #print (MY_BOUNDED_SET)
 
 num_input = 6
 num_output = 3
 num_hidden1 = 16
+num_hidden1 = 16
 num_hidden2 = 16
-N_EPOCHS = 2500
+N_EPOCHS = 10000
 epoch = 0
 train_rmse_list = []
 test_rmse_list = []
@@ -55,6 +56,9 @@ y_test = y_test.astype(np.float32)
 
 rmse_a = []
 pred_list = []
+
+#print (X_train.shape,X_test.shape)
+#exit(0)
 
 def cost_func(layer, my_y_true):
     ret = tf.sqrt(tf.reduce_mean(tf.square(layer - my_y_true)))
@@ -106,7 +110,7 @@ def train(N_EPOCHS):
         #print ("[" +str(i+1) +"]")
         rmse_a += [cost_error]
         if ((i%100) == 0):
-            print ("Train Error : " , cost_error)
+            print ("Train Error #" + (str)(i//100) + " : " , cost_error)
 
 def predict():
     global pred_list
