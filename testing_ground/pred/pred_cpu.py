@@ -3,12 +3,12 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-MY_BOUNDED_SET = 45000
-num_input = 3
+MY_BOUNDED_SET = 400000 # 0.1 * 442368 we have
+num_input = 6
 num_output = 3
 num_hidden1 = 16
 num_hidden2 = 16
-N_EPOCHS = 10000
+N_EPOCHS = 1000
 epoch = 0
 train_rmse_list = []
 test_rmse_list = []
@@ -26,14 +26,14 @@ y_pred = tf.placeholder(tf.float32, shape=[None, num_output])
 
 #data_csv = pd.read_csv('./in-6-types.csv', encoding = "utf8")
 data_csv = pd.read_csv('./myout.csv')
-exit(0);
-print (data_csv)
+#print (data_csv)
+#exit(0);
 
-#X = data_csv[['in1','in2','in3','in4','in5','in6']]
-#y = data_csv[['out1','out2','out3']]
+X = data_csv[['in1','in2','in3','in4','in5','in6']]
+y = data_csv[['out1','out2','out3']]
 
-print (X)
-
+#print (X)
+#exit(0)
 X_train_pd = X[:MY_BOUNDED_SET]
 X_test_pd = X[MY_BOUNDED_SET:]
 y_train_pd = y[:MY_BOUNDED_SET]
@@ -103,7 +103,7 @@ def train(N_EPOCHS):
         #cost_error = session.run(cost,feed_dict=feed_dict_train)
         #print ("[" +str(i+1) +"]")
         rmse_a += [cost_error]
-        if ((i%1000) == 0):
+        if ((i%100) == 0):
             print ("Train Error : " , cost_error)
 
 def predict():
