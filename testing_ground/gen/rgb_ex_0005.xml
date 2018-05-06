@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- RGB -->
+
+<scene version="0.5.0">
+
+<!--
+<integrator type="multichannel">
+-->
+
+<!-- 
+<integrator type="field">
+<string name="field" value="geoNormal"/>
+</integrator>
+</integrator>
+-->
+<integrator type="path"/>
+
+	<!--shape id=".itr_0002_0000_mesh" type="serialized">
+		<string name="filename" value="it.serialized"/>
+		<integer name="shapeIndex" value="0"/>
+		<bsdf type="plastic">
+			<srgb name="diffuseReflectance" value="#18455c"/>
+			<float name="intIOR" value="1.9"/>
+		</bsdf>
+			
+	</shape-->
+	
+	<shape type="sphere">
+		<float name="radius" value="3.81"/>
+		<bsdf type="plastic">
+			<srgb name="diffuseReflectance" value="#ffffff"/>
+			<float name="intIOR" value="2"/>
+		</bsdf>
+<!--		<bsdf type="conductor">
+		<srgb name="reflectance" value="1.0"/>
+		</bsdf>
+-->
+	</shape>
+
+	
+	<sensor type="perspective" id="Camera-camera">
+		<string name="fovAxis" value="x"/>
+		<float name="focusDistance" value="6.0"/>
+		<float name="fov" value="42"/>
+
+		<transform name="toWorld">
+			<!--lookAt target="3.04072, -2.85176, 2.80939" origin="3.69558, -3.46243, 3.25463" up="-0.317366, 0.312466, 0.895346"/-->
+			
+			<scale y="-1"/>
+			<matrix value="0.435688 0.696504 0.570102 -17.0985 0.895544 -0.271979 -0.352124 9.7752 0.0901933 -0.663983 0.742284 -22.8864 -0 0 0 1 " />
+			
+			<!--matrix value="-0.135708 -0.990741 0.000861038 -0.671789 0.0203336 -0.00364542 -0.999778 30.7127 -0.990533 0.135653 -0.0206328 0.783334 -0 0 0 1" /-->
+
+		  <!--rotate y="1" angle="180"/-->	 
+
+		</transform>
+
+
+
+		<sampler type="ldsampler">
+			<integer name="sampleCount" value="64"/>
+		</sampler>
+
+<film type="hdrfilm">
+			<boolean name="banner" value="false"/>
+
+<string name="pixelFormat" value="rgb"/>
+
+<!-- 
+<string name="channelNames" value="color"/>
+-->
+
+<!--
+<string name="pixelFormat" value="rgb, rgb"/>
+ <string name="channelNames" value="normal, color"/>
+-->
+</film>
+	</sensor>
+
+	<emitter type="envmap" id="Area_002-light">
+		<string name="filename" value="0005.exr"/>
+		<transform name="toWorld">
+			<rotate y="1" angle="-180"/>
+			<!--matrix value="-0.224951 -0.000001 -0.974370 0.000000 -0.974370 0.000000 0.224951 0.000000 0.000000 1.000000 -0.000001 8.870000 0.000000 0.000000 0.000000 1.000000 "/-->
+		</transform>
+		<float name="scale" value="1"/>
+	</emitter>
+
+
+</scene>
